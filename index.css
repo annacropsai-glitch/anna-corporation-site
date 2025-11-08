@@ -1,0 +1,187 @@
+/* stylelint-disable */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+    
+    /* Anna Corporation Brand Colors */
+    /* Sapphire Blue: #06204a = hsl(215, 88%, 16%) */
+    /* Gold: #d4af37 = hsl(45, 69%, 53%) */
+    /* Emerald Green: #046a38 = hsl(152, 94%, 21%) */
+    /* Pure White: #ffffff = hsl(0, 0%, 100%) */
+    
+    --background: 0 0% 100%;
+    --foreground: 215 88% 16%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 215 88% 16%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 88% 16%;
+    
+    --primary: 215 88% 16%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 45 69% 53%;
+    --secondary-foreground: 215 88% 16%;
+    
+    --muted: 215 20% 95%;
+    --muted-foreground: 215 20% 45%;
+    
+    --accent: 152 94% 21%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 215 20% 90%;
+    --input: 215 20% 90%;
+    --ring: 215 88% 16%;
+    
+    --sidebar: 0 0% 98%;
+    --sidebar-foreground: 215 88% 16%;
+    --sidebar-primary: 215 88% 16%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 20% 95%;
+    --sidebar-accent-foreground: 215 88% 16%;
+    --sidebar-border: 215 20% 90%;
+    --sidebar-ring: 215 88% 16%;
+    
+    /* Custom design tokens for cinematic 3D effects */
+    --sapphire: 215 88% 16%;
+    --sapphire-light: 215 70% 30%;
+    --sapphire-dark: 215 95% 10%;
+    --gold: 45 69% 53%;
+    --gold-light: 45 80% 65%;
+    --emerald: 152 94% 21%;
+    --emerald-light: 152 80% 35%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(215 88% 16%), hsl(215 70% 30%), hsl(215 95% 10%));
+    --gradient-sapphire: linear-gradient(135deg, hsl(215 88% 16%), hsl(215 70% 30%));
+    --gradient-gold: linear-gradient(135deg, hsl(45 69% 53%), hsl(45 80% 65%));
+    --gradient-emerald: linear-gradient(135deg, hsl(152 94% 21%), hsl(152 80% 35%));
+    --gradient-overlay: linear-gradient(180deg, hsl(215 88% 16% / 0.9), hsl(215 88% 16% / 0.7));
+    
+    /* Shadows and glows */
+    --shadow-glow-gold: 0 0 40px hsl(45 69% 53% / 0.4);
+    --shadow-glow-emerald: 0 0 40px hsl(152 94% 21% / 0.3);
+    --shadow-card: 0 8px 32px hsl(215 88% 16% / 0.12);
+    --shadow-card-hover: 0 16px 48px hsl(215 88% 16% / 0.2);
+    --shadow-elegant: 0 20px 60px -12px hsl(215 88% 16% / 0.25);
+    
+    /* Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .dark {
+    --background: 215 88% 16%;
+    --foreground: 0 0% 98%;
+    
+    --card: 215 70% 20%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 215 70% 20%;
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 45 69% 53%;
+    --primary-foreground: 215 88% 16%;
+    
+    --secondary: 215 70% 30%;
+    --secondary-foreground: 0 0% 98%;
+    
+    --muted: 215 50% 25%;
+    --muted-foreground: 215 20% 70%;
+    
+    --accent: 152 94% 21%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 215 50% 30%;
+    --input: 215 50% 30%;
+    --ring: 45 69% 53%;
+    
+    --sidebar: 215 88% 16%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 45 69% 53%;
+    --sidebar-primary-foreground: 215 88% 16%;
+    --sidebar-accent: 215 50% 25%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 215 50% 30%;
+    --sidebar-ring: 45 69% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  @keyframes glow {
+    0%, 100% {
+      filter: drop-shadow(0 0 20px hsl(45 69% 53% / 0.4));
+    }
+    50% {
+      filter: drop-shadow(0 0 40px hsl(45 69% 53% / 0.6));
+    }
+  }
+  
+  .card-3d {
+    transform-style: preserve-3d;
+    transition: var(--transition-smooth);
+  }
+  
+  .card-3d:hover {
+    transform: translateY(-8px) rotateX(5deg);
+    box-shadow: var(--shadow-card-hover);
+  }
+  
+  .parallax-slow {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
